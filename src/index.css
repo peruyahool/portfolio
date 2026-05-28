@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg: 0 0% 4%; /* #0a0a0a */
+  --surface: 0 0% 8%; /* #151515 */
+  --text: 0 0% 96%; /* #f5f5f5 */
+  --muted: 0 0% 64%;
+  --stroke: 0 0% 14%;
+  --accent: 198 93% 60%; /* #38bdf8 */
+  --accent-2: 270 95% 75%; /* #c084fc */
+}
+
+@theme {
+  --font-body: 'Inter', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Georgia', serif;
+  
+  --color-bg: hsl(var(--bg));
+  --color-surface: hsl(var(--surface));
+  --color-text-primary: hsl(var(--text));
+  --color-muted: hsl(var(--muted));
+  --color-stroke: hsl(var(--stroke));
+  --color-accent: #38bdf8;
+  --color-accent-secondary: #c084fc;
+}
+
+/* Base resets & Forced Dark Theme */
+body {
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom animations */
+@keyframes scroll-down {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+@keyframes role-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-scroll-down {
+  animation: scroll-down 1.5s ease-in-out infinite;
+}
+
+.animate-role-fade-in {
+  animation: role-fade-in 0.4s ease-out forwards;
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease-in-out infinite;
+}
+
+/* Gradient Utilities */
+.accent-gradient {
+  background: linear-gradient(135deg, #38bdf8 0%, #c084fc 100%);
+}
+
+.accent-gradient-text {
+  background: linear-gradient(95deg, #38bdf8 0%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.accent-border {
+  border: 1px solid transparent;
+  background: linear-gradient(#0a0a0a, #0a0a0a) padding-box, linear-gradient(135deg, #38bdf8 0%, #c084fc 100%) border-box;
+}
+
+.glass {
+  background: rgba(14, 14, 18, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.halftone {
+  background-image: radial-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.accent-border-hover:hover {
+  border-color: transparent;
+  background-image: linear-gradient(#151515, #151515), linear-gradient(135deg, #38bdf8 0%, #c084fc 100%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+/* Halftone overlay style */
+.halftone-overlay {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--stroke));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted));
+}
+
+html {
+  scroll-behavior: smooth;
+}

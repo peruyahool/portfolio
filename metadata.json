@@ -1,0 +1,6 @@
+{
+  "name": "Dark Portfolio Landing Page",
+  "description": "A premium dark developer portfolio for Yahool Perumal - Analyst & AI Automation Engineer. Features expanding architecture blueprints, interactive skills matrices, and bespoke GSAP animations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
