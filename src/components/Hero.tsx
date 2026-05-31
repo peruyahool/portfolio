@@ -206,7 +206,7 @@ export default function Hero({ onSeeWorksClick, onReachOutClick, onNavClick, act
           id="hero-description"
           className="blur-in text-sm md:text-base text-muted max-w-xl mb-12 font-light leading-relaxed font-body"
         >
-          Passionate AI Automation Engineer and Big Data enthusiast focused on building intelligent workflows, AI-powered applications, and scalable automation systems.
+          AI & Full-Stack Engineer at TCS, Bangalore — building intelligent systems end to end. Specializing in intelligent workflows, LLM agents, and scalable enterprise automation systems.
         </p>
 
         {/* CTA Buttons */}

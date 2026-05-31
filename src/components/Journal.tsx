@@ -47,8 +47,124 @@ const SKILLS_DATA: SkillCategory[] = [
 ];
 
 export default function Journal() {
-  const [activeTab, setActiveTab] = useState<"about" | "experience" | "education" | "skills" | "awards">("experience");
+  const [activeTab, setActiveTab] = useState<"about" | "experience" | "education" | "skills" | "awards" >("experience");
   const [selectedSkillCategory, setSelectedSkillCategory] = useState<string | null>(null);
+
+  const handlePrintResume = () => {
+    const printWindow = window.open("", "_blank");
+    if (!printWindow) return;
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Yahool Perumal - Resume</title>
+          <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+          <style>
+            @media print {
+              body { color: #000; background: #fff; }
+              .no-print { display: none; }
+            }
+          </style>
+        </head>
+        <body class="bg-white text-gray-950 p-10 font-sans leading-relaxed">
+          <div class="max-w-4xl mx-auto border border-gray-200 rounded-2xl p-8 shadow-sm">
+            <div class="flex justify-between items-start border-b border-gray-300 pb-5 mb-6">
+              <div>
+                <h1 class="text-3xl font-bold tracking-tight text-gray-900">Yahool Perumal</h1>
+                <p class="text-gray-500 font-medium mt-1">AI & Full-Stack Engineer — TCS, Bangalore</p>
+                <p class="text-sm text-gray-400 mt-0.5">Bangalore, Karnataka, India</p>
+              </div>
+              <div class="text-right text-sm text-gray-500">
+                <p>peruyahool@gmail.com</p>
+                <p>+91 93457 34551</p>
+                <p class="mt-1 font-mono text-xs">peruyahool.github.io</p>
+              </div>
+            </div>
+
+            {/* Profile */}
+            <div class="mb-6">
+              <h2 class="text-xs font-bold text-gray-900 border-b-2 border-gray-800 pb-1 mb-3 uppercase tracking-wider">Professional Summary</h2>
+              <p class="text-sm text-gray-750">
+                Highly capable AI & Full-Stack Automation Engineer with deep expertise in designing multi-agent workflows, Retrieval-Augmented Generation (RAG) loops, and high-volume analytical database processing systems. Specialized in SAP IQ, SQL optimizations, and direct platform automations using n8n, Supabase, and custom AI reasoning applications.
+              </p>
+            </div>
+
+            {/* Work History */}
+            <div class="mb-6">
+              <h2 class="text-xs font-bold text-gray-900 border-b-2 border-gray-800 pb-1 mb-3 uppercase tracking-wider">Work Experience</h2>
+              
+              <div class="mb-4">
+                <div class="flex justify-between font-medium text-gray-900">
+                  <span class="font-bold text-sm">Analyst, Enterprise Data & Automation</span>
+                  <span>Apr 2026 – Present</span>
+                </div>
+                <p class="text-xs text-gray-500 italic">Tata Consultancy Services (TCS) • Bangalore, India</p>
+                <ul class="list-disc list-outside pl-4 mt-2 text-xs text-gray-700 space-y-1">
+                  <li>Optimized and analyzed high-volume SQL workloads in SAP IQ columnar databases for enterprise-scale analytics and reporting.</li>
+                  <li>Performed query tuning, execution plan analysis, and database performance monitoring to improve system efficiency.</li>
+                  <li>Investigated production issues through log analysis, data validation, and root-cause troubleshooting.</li>
+                  <li>Worked extensively with structured datasets, SQL procedures, and JSON-based data flows to support analytical pipelines.</li>
+                  <li>Managed database health reliability, resolving incident anomalies across enterprise-scale operational environments.</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Education */}
+            <div class="mb-6">
+              <h2 class="text-xs font-bold text-gray-900 border-b-2 border-gray-800 pb-1 mb-3 uppercase tracking-wider">Education</h2>
+              <div>
+                <div class="flex justify-between font-medium text-gray-900">
+                  <span class="font-bold text-sm">B.Tech in Computer Science (Big Data Analysis)</span>
+                  <span>2020 – 2024</span>
+                </div>
+                <p class="text-xs text-gray-500">SRM University • GPA: 8.56</p>
+              </div>
+            </div>
+
+            {/* Core Skills */}
+            <div class="mb-6">
+              <h2 class="text-xs font-bold text-gray-900 border-b-2 border-gray-800 pb-1 mb-3 uppercase tracking-wider">Core Skills Matrix</h2>
+              <div class="grid grid-cols-2 gap-4 text-xs text-gray-750">
+                <div>
+                  <p><strong>AI & Automation:</strong> LLM Prompts, RAG, Multi-Agent pipelines, n8n, Zapier, Make</p>
+                  <p class="mt-1"><strong>Databases:</strong> PostgreSQL, SAP IQ, Supabase, Firestore, vector indices (ChromaDB)</p>
+                </div>
+                <div>
+                  <p><strong>Languages & Dev:</strong> Python, SQL, TypeScript/React, API/Webhooks, Docker, Git</p>
+                  <p class="mt-1"><strong>Soft Skills:</strong> Complex problem solving, Agile team coordination, Technical leadership</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Featured Projects */}
+            <div>
+              <h2 class="text-xs font-bold text-gray-900 border-b-2 border-gray-800 pb-1 mb-3 uppercase tracking-wider">Featured Projects</h2>
+              <div class="text-xs text-gray-750 space-y-3">
+                <div>
+                  <p class="font-bold text-gray-900 text-sm">AI-Driven Autonomous IT Incident Platform (TCS Hackathon Prize Winner)</p>
+                  <p class="mt-0.5">Built a 5-layer anomaly detection and automatic remediation system reducing MTTR by 65% and automated analysis by 80%.</p>
+                </div>
+                <div>
+                  <p class="font-bold text-gray-900 text-sm">AI Resume Analyzer (Solo Project)</p>
+                  <p class="mt-0.5">A full-stack parsing and evaluation feedback ecosystem built from scratch using Gemini LLM, React, and Firebase.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Print trigger CTA */}
+            <div class="no-print mt-10 pt-4 border-t border-gray-200 flex justify-end">
+              <button 
+                onclick="window.print()" 
+                class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-5 py-2.5 rounded-lg shadow transition-all cursor-pointer"
+              >
+                Print / Save Document as PDF
+              </button>
+            </div>
+          </div>
+        </body>
+      </html>
+    `);
+    printWindow.document.close();
+  };
 
   return (
     <section id="resume" className="bg-[#0a0a0a] py-20 md:py-28 text-text-primary select-none border-t border-white/5 relative overflow-hidden">
@@ -88,6 +204,17 @@ export default function Journal() {
             <p className="text-sm md:text-base text-muted font-body leading-relaxed max-w-md font-light">
               An interactive overview of professional credentials, production history, and technological competencies.
             </p>
+
+            {/* Download PDF Resume Action */}
+            <div className="mt-5">
+              <button
+                onClick={handlePrintResume}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-white bg-white/5 border border-white/10 hover:bg-[#38bdf8]/10 hover:border-[#38bdf8]/30 hover:text-[#38bdf8] transition-all duration-300 cursor-pointer shadow-sm"
+              >
+                <FileText className="w-3.5 h-3.5" />
+                Download PDF Resume ↗
+              </button>
+            </div>
           </div>
 
           {/* Tab Selection Controls (Glass Pill Slider) */}
