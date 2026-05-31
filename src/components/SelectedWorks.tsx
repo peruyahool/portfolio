@@ -54,7 +54,7 @@ const PROJECTS: ProjectDetails[] = [
     ],
     accentColor: "#f59e0b",
     bgGradient: "from-amber-500/10 to-transparent",
-    githubUrl: "https://github.com/peruyahool/autonomous-incident-intelligence",
+    githubUrl: "https://github.com/peruyahool/AI-incident-management-",
     icon: Cpu
   },
   {
@@ -85,8 +85,7 @@ const PROJECTS: ProjectDetails[] = [
     ],
     accentColor: "#38bdf8",
     bgGradient: "from-sky-500/10 to-transparent",
-    githubUrl: "https://github.com/peruyahool/ai-resume-analyzer",
-    liveUrl: "https://resume-analyzer.example.com",
+    githubUrl: "https://github.com/peruyahool/AI-resume-maker-",
     icon: FileText
   },
   {
@@ -118,7 +117,7 @@ const PROJECTS: ProjectDetails[] = [
     ],
     accentColor: "#10b981",
     bgGradient: "from-emerald-500/10 to-transparent",
-    githubUrl: "https://github.com/peruyahool/rag-knowledge-chatbot",
+    githubUrl: "https://github.com/peruyahool/Rag-model-chatbot-",
     icon: Brain
   },
   {
@@ -144,7 +143,7 @@ const PROJECTS: ProjectDetails[] = [
     ],
     accentColor: "#ec4899",
     bgGradient: "from-pink-500/10 to-transparent",
-    liveUrl: "https://sakithi-clinic.example.com",
+    githubUrl: "https://github.com/peruyahool/Hospital-Website",
     icon: Activity
   },
   {

@@ -121,7 +121,7 @@ export default function ContactFooter() {
 
   return (
     <footer
-      id="resume"
+      id="contact"
       className="relative pt-24 pb-12 bg-bg text-text-primary select-none overflow-hidden border-t border-white/5"
     >
       {/* Reflected HLS Background Video with heavier overlay */}

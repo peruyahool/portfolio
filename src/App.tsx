@@ -16,7 +16,7 @@ export default function App() {
   useEffect(() => {
     if (isLoading) return;
 
-    const sections = ["home", "resume", "work"];
+    const sections = ["home", "resume", "work", "contact"];
     const options = {
       root: null,
       rootMargin: "-35% 0px -35% 0px", // Triggers when the section takes up the primary focus region
@@ -76,7 +76,7 @@ export default function App() {
             activeSection={activeSection}
             onNavClick={handleNavClick}
             onSeeWorksClick={() => handleNavClick("work")}
-            onReachOutClick={() => handleNavClick("resume")}
+            onReachOutClick={() => handleNavClick("contact")}
           />
 
           {/* Section 3: Career Trajectory */}

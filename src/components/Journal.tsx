@@ -272,14 +272,7 @@ export default function Journal() {
                           Featured Role
                         </span>
                         <h3 className="text-2xl font-display text-white italic mt-2">
-                          <a 
-                            href="https://www.tcs.com?utm_source=chatgpt.com" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="hover:underline hover:text-[#38bdf8] transition-colors"
-                          >
-                            Tata Consultancy Services (TCS)
-                          </a>
+                          Tata Consultancy Services (TCS)
                         </h3>
                         <p className="text-sm text-white/75 font-semibold font-body mt-1">Analyst — Enterprise Data & Automation</p>
                       </div>
