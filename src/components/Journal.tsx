@@ -164,7 +164,7 @@ export default function Journal() {
                 <div>
                   <div class="flex justify-between font-bold text-gray-900 text-xs">
                     <span>B.Tech — Computer Science & Engineering (Big Data Analysis)</span>
-                    <span class="font-mono text-[11px]">06/2020 – 03/24_srm</span>
+                    <span class="font-mono text-[11px]">06/2020 – 03/2024</span>
                   </div>
                   <p class="text-xs text-gray-600">SRM University, Chennai • GPA: 8.56</p>
                 </div>
@@ -398,7 +398,7 @@ export default function Journal() {
                       
                       <div className="sm:text-right flex flex-col sm:items-end">
                         <span className="text-xs text-[#38bdf8] font-mono tracking-wider uppercase font-medium">
-                          Apr 2026 – Present
+                          06/2024 – Present
                         </span>
                         <span className="text-xs text-white/40 font-body mt-1">
                           Bangalore, India
@@ -407,24 +407,60 @@ export default function Journal() {
                     </div>
 
                     {/* Bullets List */}
-                    <div className="space-y-4">
-                      {[
-                        "Optimized and analyzed high-volume SQL workloads in SAP IQ columnar databases for enterprise-scale analytics and reporting",
-                        "Performed query tuning, execution plan analysis, and database performance monitoring to improve system efficiency and response time",
-                        "Investigated production issues through log analysis, data validation, and root-cause troubleshooting across analytical environments",
-                        "Worked extensively with structured datasets, SQL procedures, and JSON-based data flows to support backend analytics operations",
-                        "Managed enterprise data reliability by monitoring database health, resolving incidents, and maintaining data consistency across systems",
-                        "Analyzed operational data patterns and system behavior to support reporting accuracy and process optimization initiatives",
-                        "Collaborated with cross-functional teams on analytics support, database maintenance, and enterprise data operations within large-scale environments",
-                        "Gained hands-on experience with column-oriented database architecture, SQL optimization, and enterprise analytical systems"
-                      ].map((bullet, idx) => (
-                        <div key={idx} className="flex gap-3 items-start">
-                          <CheckCircle className="w-4 h-4 text-[#38bdf8] shrink-0 mt-1" />
-                          <p className="text-sm text-white/70 leading-relaxed font-light font-body">
-                            {bullet}
-                          </p>
+                    <div className="space-y-6">
+                      <div>
+                        <h4 className="text-xs font-semibold text-[#38bdf8] uppercase tracking-wider mb-2.5 font-mono">Data Analysis & Reporting</h4>
+                        <div className="space-y-3">
+                          {[
+                            "Performed structured data analysis across SAP ERP modules using complex SQL queries to extract, transform, and interpret large datasets, enabling data-driven decision-making for operational teams.",
+                            "Designed and maintained SQL-based reporting pipelines to surface business metrics, reducing ad-hoc query requests by standardising reusable report templates for stakeholders.",
+                            "Analysed system logs, transaction data, and module-level records to identify patterns, anomalies, and root causes — translating raw data into actionable insights for cross-functional teams."
+                          ].map((bullet, idx) => (
+                            <div key={idx} className="flex gap-3 items-start">
+                              <CheckCircle className="w-4 h-4 text-[#38bdf8] shrink-0 mt-0.5" />
+                              <p className="text-sm text-white/70 leading-relaxed font-light font-body">
+                                {bullet}
+                              </p>
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                      </div>
+
+                      <div>
+                        <h4 className="text-xs font-semibold text-[#38bdf8] uppercase tracking-wider mb-2.5 font-mono">Automation & Process Improvement</h4>
+                        <div className="space-y-3">
+                          {[
+                            "Automated repetitive data extraction and reporting workflows using SQL scripts and scheduled jobs, eliminating manual effort and improving reporting turnaround time significantly.",
+                            "Identified bottlenecks in manual data pull processes and re-engineered them into automated, repeatable pipelines — reducing analyst time spent on routine tasks and improving accuracy.",
+                            "Documented and standardised automation scripts, enabling team members to self-serve reports without engineering intervention."
+                          ].map((bullet, idx) => (
+                            <div key={idx} className="flex gap-3 items-start">
+                              <CheckCircle className="w-4 h-4 text-[#38bdf8] shrink-0 mt-0.5" />
+                              <p className="text-sm text-white/70 leading-relaxed font-light font-body">
+                                {bullet}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <h4 className="text-xs font-semibold text-[#38bdf8] uppercase tracking-wider mb-2.5 font-mono">AI/ML Exploration & Upskilling</h4>
+                        <div className="space-y-3">
+                          {[
+                            "Independently researched and applied AI and machine learning techniques relevant to enterprise data problems including anomaly detection, NLP, and LLM-based automation — building hands-on projects alongside professional work.",
+                            "Developed a strong foundation in Generative AI, RAG pipelines, and intelligent automation through self-directed study, applying concepts directly to personal projects (AI Incident Intelligence Platform, RAG Chatbot, AI Resume Analyzer).",
+                            "Bridged domain knowledge of enterprise SAP data structures with modern AI tooling, positioning to drive intelligent automation in enterprise IT environments."
+                          ].map((bullet, idx) => (
+                            <div key={idx} className="flex gap-3 items-start">
+                              <CheckCircle className="w-4 h-4 text-[#38bdf8] shrink-0 mt-0.5" />
+                              <p className="text-sm text-white/70 leading-relaxed font-light font-body">
+                                {bullet}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -438,28 +474,28 @@ export default function Journal() {
                         TCS Engagement Summary
                       </h4>
                       <p className="text-sm text-white/80 font-body leading-relaxed mb-6 font-light font-body">
-                        Focused on enterprise analytics operations using SAP IQ columnar databases, SQL optimization, and production support analysis. Worked on performance monitoring, query analysis, data validation, and backend analytical workflows across large-scale business systems.
+                        Focused on structured data analysis, reporting pipeline design, automation scripts, and AI/ML upskilling within enterprise environments. Bridged domain knowledge of SAP data structures with modern AI tooling to drive process optimization.
                       </p>
 
                       <div className="space-y-4 pt-4 border-t border-white/5">
                         <div className="flex justify-between text-xs">
                           <span className="text-white/40">Division</span>
-                          <span className="text-[#38bdf8] font-medium">Global Delivery / Analytics</span>
+                          <span className="text-[#38bdf8] font-medium">Enterprise Data & Automation</span>
                         </div>
                         <div className="flex justify-between text-xs">
-                          <span className="text-white/40">Query Stack</span>
-                          <span className="text-[#38bdf8] font-medium">SAP IQ, SQL, JSON</span>
+                          <span className="text-white/40">Stack</span>
+                          <span className="text-[#38bdf8] font-medium">SQL, Python, GenAI, n8n</span>
                         </div>
                         <div className="flex justify-between text-xs">
-                          <span className="text-white/40">Target Operations</span>
-                          <span className="text-[#38bdf8] font-medium">Process Automation, Database reliability</span>
+                          <span className="text-white/40">Focus Areas</span>
+                          <span className="text-[#38bdf8] font-medium">Data Reporting, Workflow Automation, AI Ops</span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between bg-[#38bdf8]/5 p-4 rounded-2xl">
-                      <span className="text-xs text-white/50 uppercase tracking-widest font-mono">Engagement Role</span>
-                      <span className="text-xs text-white uppercase tracking-wider font-semibold">Analyst</span>
+                    <div className="mt-8 pt-6 border-t border-[#38bdf8]/10 flex items-center justify-between bg-[#38bdf8]/5 p-4 rounded-2xl">
+                      <span className="text-xs text-white/50 uppercase tracking-widest font-mono font-medium">Engagement Role</span>
+                      <span className="text-xs text-[#38bdf8] uppercase tracking-wider font-semibold">Analyst</span>
                     </div>
                   </div>
                 </div>
@@ -566,7 +602,7 @@ export default function Journal() {
                         B.Tech — GPA: 8.56
                       </span>
                       <h3 className="text-lg font-display text-white italic mt-1 font-medium">SRM University</h3>
-                      <p className="text-xs text-white/40 font-body">Chennai, India • 06/2020 - 05/2024</p>
+                      <p className="text-xs text-white/40 font-body">Chennai, India • 06/2020 – 03/2024</p>
                       <p className="text-sm text-white/70 leading-relaxed font-light font-body mt-2">
                         Specialized in <strong className="text-white">Computer Science with Big Data Analysis</strong>. Acquired solid foundations in exploratory database modeling, predictive machine learning algorithms, and distributed analytics pipelines.
                       </p>
@@ -574,27 +610,14 @@ export default function Journal() {
 
                     {/* SMBM SCHOOL */}
                     <div className="relative">
-                      <div className="absolute left-[-31px] top-1.5 w-3.5 h-3.5 rounded-full bg-white/40 border-4 border-[#0a0a0a]" />
+                      <div className="absolute left-[-31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#38bdf8] border-4 border-[#0a0a0a]" />
                       <span className="text-[10px] text-white/40 font-mono tracking-widest font-semibold uppercase">
                         High School Education
                       </span>
                       <h3 className="text-lg font-display text-white italic mt-1 font-medium">SMBM School</h3>
-                      <p className="text-xs text-white/40 font-body">01/2015 - 01/2020</p>
+                      <p className="text-xs text-white/40 font-body">Dindigul, Tamil Nadu • 06/2015 – 05/2020</p>
                       <p className="text-sm text-white/60 leading-relaxed font-light font-body mt-2">
                         Developed high-level critical thinking, analytic reasoning, and scientific inquiry skills, launching early interests in computer logic systems.
-                      </p>
-                    </div>
-
-                    {/* PRASIDDHI VIDYODAYA SCHOOL */}
-                    <div className="relative">
-                      <div className="absolute left-[-31px] top-1.5 w-3.5 h-3.5 rounded-full bg-white/20 border-4 border-[#0a0a0a]" />
-                      <span className="text-[10px] text-white/40 font-mono tracking-widest font-semibold uppercase">
-                        Primary School Education
-                      </span>
-                      <h3 className="text-lg font-display text-white italic mt-1 font-medium">Prasiddhi Vidyodaya School</h3>
-                      <p className="text-xs text-white/40 font-body">01/2005 - 01/2015</p>
-                      <p className="text-sm text-white/50 leading-relaxed font-light font-body mt-2">
-                        Broad elementary training providing base competencies in advanced mathematical calculation, verbal syntax analysis, and team collaborations.
                       </p>
                     </div>
                   </div>
