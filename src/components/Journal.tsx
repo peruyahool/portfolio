@@ -12,37 +12,42 @@ const SKILLS_DATA: SkillCategory[] = [
   {
     title: "AI & Automation",
     icon: Sparkles,
-    skills: ["AI Automation", "AI Agents", "Workflow Automation", "Prompt Engineering", "RAG Applications", "Conversational AI", "Multi-Agent Systems", "Intelligent Process Automation", "AI Workflow Design"]
+    skills: ["Agentic Workflows", "AI Agents", "AI Observability", "Anthropic Claude API", "AutoGen", "CrewAI", "Function Calling", "Intelligent Process Automation", "LangGraph", "Make (Integromat)", "Multi-Agent Systems", "n8n", "OpenAI API", "Pinecone", "Tool Calling", "Weaviate", "Webhook Integration", "Workflow Automation", "Zapier"]
   },
   {
-    title: "Automation Tools & Frameworks",
+    title: "LLM & Frameworks",
     icon: Cpu,
-    skills: ["n8n", "Zapier", "Make (Integromat)", "LangChain", "LlamaIndex", "Hugging Face", "Streamlit", "Ollama", "Open WebUI", "Google AI Studio", "GitHub Copilot", "Claude", "Gemini"]
+    skills: ["AI Workflow Design", "Conversational AI", "Hugging Face", "LangChain", "LlamaIndex", "Prompt Engineering", "RAG Architecture"]
   },
   {
-    title: "Databases & Vector Databases",
+    title: "Databases & Vector DBs",
     icon: Database,
-    skills: ["PostgreSQL", "MySQL", "SQL Server", "SAP IQ", "Firebase", "Supabase", "ChromaDB", "Snowflake"]
+    skills: ["ChromaDB", "Firebase", "MySQL", "PostgreSQL", "SAP IQ", "Snowflake", "SQL Server", "Supabase"]
   },
   {
-    title: "Data & Backend Technologies",
+    title: "Data & Analytics",
     icon: Server,
-    skills: ["SQL", "APIs", "Webhooks", "JSON", "ETL Pipelines", "Data Cleaning", "Data Transformation", "Data Modeling", "Workflow Integration", "Backend Automation"]
+    skills: ["Data Visualization", "EDA", "Excel", "KPI Dashboards", "Power BI (DAX)", "Predictive Analytics", "Tableau"]
   },
   {
-    title: "AI/ML & Analytics",
+    title: "AI/ML",
     icon: Layout,
-    skills: ["Machine Learning Basics", "Predictive Analytics", "Deep Learning Fundamentals", "Exploratory Data Analysis (EDA)", "KPI Dashboards", "Data Visualization", "Prompt Optimization"]
+    skills: ["Deep Learning", "Hypothesis Testing", "Keras / TensorFlow", "MLOps", "NLP Preprocessing", "Regression", "Scikit-learn"]
   },
   {
-    title: "Cloud & Dev Tools",
+    title: "Full-Stack & Dev Tools",
     icon: Cpu,
-    skills: ["Docker", "Git / GitHub", "VPS Deployment", "Azure Fundamentals", "Hadoop", "Spark", "Power BI", "Tableau", "Excel", "Python (Pandas, NumPy, Matplotlib)"]
+    skills: ["Docker", "FastAPI", "Git / GitHub", "React + TypeScript", "Streamlit", "Vite", "VPS Deployment"]
+  },
+  {
+    title: "Cloud & Platforms",
+    icon: Cpu,
+    skills: ["Azure Fundamentals (AZ-900)", "Gemini API", "Google AI Studio", "Hadoop", "Ollama", "Open WebUI", "Spark"]
   },
   {
     title: "Soft Skills",
     icon: HelpCircle,
-    skills: ["Problem Solving", "Critical Thinking", "Cross-Functional Collaboration", "Leadership", "Communication", "Time Management", "Presentation Skills", "Data-Driven Decision Making"]
+    skills: ["Critical Thinking", "Cross-Functional Collaboration", "Data-Driven Decision Making", "Presentation Skills", "Problem Solving"]
   }
 ];
 
@@ -56,102 +61,216 @@ export default function Journal() {
     printWindow.document.write(`
       <html>
         <head>
-          <title>Yahool Perumal - Resume</title>
+          <title>YAHOOL PERUMAL - Resume</title>
           <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
           <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+            body {
+              font-family: 'Inter', sans-serif;
+              font-size: 11px;
+            }
+            .section-title {
+              border-bottom: 1.5px solid #1f2937;
+              padding-bottom: 2px;
+              margin-bottom: 8px;
+              text-transform: uppercase;
+              font-weight: 700;
+              letter-spacing: 0.05em;
+              color: #111827;
+            }
             @media print {
-              body { color: #000; background: #fff; }
+              body { 
+                color: #000; 
+                background: #fff; 
+                padding: 0; 
+                margin: 0;
+                font-size: 10.5px;
+              }
               .no-print { display: none; }
+              .page-break { page-break-before: always; }
             }
           </style>
         </head>
-        <body class="bg-white text-gray-950 p-10 font-sans leading-relaxed">
-          <div class="max-w-4xl mx-auto border border-gray-200 rounded-2xl p-8 shadow-sm">
-            <div class="flex justify-between items-start border-b border-gray-300 pb-5 mb-6">
+        <body class="bg-gray-100 text-gray-950 p-6 md:p-12 leading-relaxed">
+          <div class="max-w-4xl mx-auto bg-white p-8 md:p-10 shadow-sm rounded-xl">
+            {/* Header */}
+            <div class="flex justify-between items-start border-b border-gray-300 pb-4 mb-5">
               <div>
-                <h1 class="text-3xl font-bold tracking-tight text-gray-900">Yahool Perumal</h1>
-                <p class="text-gray-500 font-medium mt-1">AI & Full-Stack Engineer — TCS, Bangalore</p>
-                <p class="text-sm text-gray-400 mt-0.5">Bangalore, Karnataka, India</p>
+                <h1 class="text-2xl font-bold tracking-tight text-gray-900 uppercase">YAHOOL PERUMAL</h1>
+                <p class="text-sm text-gray-600 font-medium mt-0.5">AI Automation Engineer</p>
+                <p class="text-xs text-gray-500 mt-1">Bangalore, Karnataka • +91 93457 34551 • peruyahool@gmail.com</p>
               </div>
-              <div class="text-right text-sm text-gray-500">
-                <p>peruyahool@gmail.com</p>
-                <p>+91 93457 34551</p>
-                <p class="mt-1 font-mono text-xs">peruyahool.github.io</p>
+              <div class="text-right text-xs text-gray-500 font-mono space-y-0.5">
+                <p>LinkedIn</p>
+                <p>GitHub: github.com/peruyahool</p>
+                <p>Portfolio: portfolio-iota-sable-77.vercel.app</p>
               </div>
             </div>
 
             {/* Profile */}
-            <div class="mb-6">
-              <h2 class="text-xs font-bold text-gray-900 border-b-2 border-gray-800 pb-1 mb-3 uppercase tracking-wider">Professional Summary</h2>
-              <p class="text-sm text-gray-750">
-                Highly capable AI & Full-Stack Automation Engineer with deep expertise in designing multi-agent workflows, Retrieval-Augmented Generation (RAG) loops, and high-volume analytical database processing systems. Specialized in SAP IQ, SQL optimizations, and direct platform automations using n8n, Supabase, and custom AI reasoning applications.
+            <div class="mb-5">
+              <h2 class="section-title text-[11px]">Professional Summary</h2>
+              <p class="text-gray-700 leading-relaxed">
+                AI Automation Engineer specializing in AI agents, workflow automation, and intelligent business solutions. Proficient in building RAG applications, integrating APIs and webhooks, and developing scalable AI-powered systems using n8n, LangChain, LlamaIndex, Supabase, PostgreSQL, and modern AI platforms. Passionate about leveraging AI, analytics, and automation to streamline processes, enhance productivity, and deliver impactful real-world applications.
               </p>
             </div>
 
             {/* Work History */}
-            <div class="mb-6">
-              <h2 class="text-xs font-bold text-gray-900 border-b-2 border-gray-800 pb-1 mb-3 uppercase tracking-wider">Work Experience</h2>
+            <div class="mb-5">
+              <h2 class="section-title text-[11px]">Work Experience</h2>
               
               <div class="mb-4">
-                <div class="flex justify-between font-medium text-gray-900">
-                  <span class="font-bold text-sm">Analyst, Enterprise Data & Automation</span>
-                  <span>Apr 2026 – Present</span>
+                <div class="flex justify-between font-bold text-gray-900 text-xs">
+                  <span>Tata Consultancy Services (TCS) — Analyst, Enterprise Data & Automation</span>
+                  <span class="font-mono text-[11px]">06/2024 – Present</span>
                 </div>
-                <p class="text-xs text-gray-500 italic">Tata Consultancy Services (TCS) • Bangalore, India</p>
-                <ul class="list-disc list-outside pl-4 mt-2 text-xs text-gray-700 space-y-1">
-                  <li>Optimized and analyzed high-volume SQL workloads in SAP IQ columnar databases for enterprise-scale analytics and reporting.</li>
-                  <li>Performed query tuning, execution plan analysis, and database performance monitoring to improve system efficiency.</li>
-                  <li>Investigated production issues through log analysis, data validation, and root-cause troubleshooting.</li>
-                  <li>Worked extensively with structured datasets, SQL procedures, and JSON-based data flows to support analytical pipelines.</li>
-                  <li>Managed database health reliability, resolving incident anomalies across enterprise-scale operational environments.</li>
-                </ul>
+                <p class="text-xs text-gray-500 italic mt-0.5">Full-time · Bangalore</p>
+                
+                <div class="mt-3 space-y-3">
+                  <div>
+                    <h4 class="font-bold text-gray-800 text-[11px] mb-1">Data Analysis & Reporting</h4>
+                    <ul class="list-disc list-outside pl-4 text-gray-700 space-y-1">
+                      <li>Performed structured data analysis across SAP ERP modules using complex SQL queries to extract, transform, and interpret large datasets, enabling data-driven decision-making for operational teams.</li>
+                      <li>Designed and maintained SQL-based reporting pipelines to surface business metrics, reducing ad-hoc query requests by standardising reusable report templates for stakeholders.</li>
+                      <li>Analysed system logs, transaction data, and module-level records to identify patterns, anomalies, and root causes — translating raw data into actionable insights for cross-functional teams.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 class="font-bold text-gray-800 text-[11px] mb-1">Automation & Process Improvement</h4>
+                    <ul class="list-disc list-outside pl-4 text-gray-700 space-y-1">
+                      <li>Automated repetitive data extraction and reporting workflows using SQL scripts and scheduled jobs, eliminating manual effort and improving reporting turnaround time significantly.</li>
+                      <li>Identified bottlenecks in manual data pull processes and re-engineered them into automated, repeatable pipelines — reducing analyst time spent on routine tasks and improving accuracy.</li>
+                      <li>Documented and standardised automation scripts, enabling team members to self-serve reports without engineering intervention.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 class="font-bold text-gray-800 text-[11px] mb-1">AI/ML Exploration & Upskilling</h4>
+                    <ul class="list-disc list-outside pl-4 text-gray-700 space-y-1">
+                      <li>Independently researched and applied AI and machine learning techniques relevant to enterprise data problems including anomaly detection, NLP, and LLM-based automation — building hands-on projects alongside professional work.</li>
+                      <li>Developed a strong foundation in Generative AI, RAG pipelines, and intelligent automation through self-directed study, applying concepts directly to personal projects (AI Incident Intelligence Platform, RAG Chatbot, AI Resume Analyzer).</li>
+                      <li>Bridged domain knowledge of enterprise SAP data structures with modern AI tooling, positioning to drive intelligent automation in enterprise IT environments.</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Education */}
-            <div class="mb-6">
-              <h2 class="text-xs font-bold text-gray-900 border-b-2 border-gray-800 pb-1 mb-3 uppercase tracking-wider">Education</h2>
-              <div>
-                <div class="flex justify-between font-medium text-gray-900">
-                  <span class="font-bold text-sm">B.Tech in Computer Science (Big Data Analysis)</span>
-                  <span>2020 – 2024</span>
+            <div class="mb-5">
+              <h2 class="section-title text-[11px]">Education</h2>
+              <div class="space-y-3">
+                <div>
+                  <div class="flex justify-between font-bold text-gray-900 text-xs">
+                    <span>B.Tech — Computer Science & Engineering (Big Data Analysis)</span>
+                    <span class="font-mono text-[11px]">06/2020 – 03/24_srm</span>
+                  </div>
+                  <p class="text-xs text-gray-600">SRM University, Chennai • GPA: 8.56</p>
                 </div>
-                <p class="text-xs text-gray-500">SRM University • GPA: 8.56</p>
+                <div>
+                  <div class="flex justify-between font-bold text-gray-900 text-xs">
+                    <span>SMBM School, Dindigul</span>
+                    <span class="font-mono text-[11px]">06/2015 – 05/2020</span>
+                  </div>
+                </div>
               </div>
             </div>
 
+            <div class="page-break"></div>
+
             {/* Core Skills */}
-            <div class="mb-6">
-              <h2 class="text-xs font-bold text-gray-900 border-b-2 border-gray-800 pb-1 mb-3 uppercase tracking-wider">Core Skills Matrix</h2>
-              <div class="grid grid-cols-2 gap-4 text-xs text-gray-750">
+            <div class="mb-5 pt-4">
+              <h2 class="section-title text-[11px]">Core Skills Matrix</h2>
+              <div class="grid grid-cols-2 gap-x-6 gap-y-2.5 text-gray-700">
                 <div>
-                  <p><strong>AI & Automation:</strong> LLM Prompts, RAG, Multi-Agent pipelines, n8n, Zapier, Make</p>
-                  <p class="mt-1"><strong>Databases:</strong> PostgreSQL, SAP IQ, Supabase, Firestore, vector indices (ChromaDB)</p>
+                  <p class="mb-1.5"><strong class="text-gray-900">AI & Automation:</strong> Agentic Workflows, AI Agents, AI Observability, Anthropic Claude API, AutoGen, CrewAI, Function Calling, Intelligent Process Automation, LangGraph, Make (Integromat), Multi-Agent Systems, n8n, OpenAI API, Pinecone, Tool Calling, Weaviate, Webhook Integration, Workflow Automation, Zapier</p>
+                  <p class="mb-1.5"><strong class="text-gray-900">LLM & Frameworks:</strong> AI Workflow Design, Conversational AI, Hugging Face, LangChain, LlamaIndex, Prompt Engineering, RAG Architecture</p>
+                  <p class="mb-1.5"><strong class="text-gray-900">Databases & Vector DBs:</strong> ChromaDB, Firebase, MySQL, PostgreSQL, SAP IQ, Snowflake, SQL Server, Supabase</p>
+                  <p><strong class="text-gray-900">Data & Analytics:</strong> Data Visualization, EDA, Excel, KPI Dashboards, Power BI (DAX), Predictive Analytics, Tableau</p>
                 </div>
                 <div>
-                  <p><strong>Languages & Dev:</strong> Python, SQL, TypeScript/React, API/Webhooks, Docker, Git</p>
-                  <p class="mt-1"><strong>Soft Skills:</strong> Complex problem solving, Agile team coordination, Technical leadership</p>
+                  <p class="mb-1.5"><strong class="text-gray-900">AI/ML:</strong> Deep Learning, Hypothesis Testing, Keras / TensorFlow, MLOps, NLP Preprocessing, Regression, Scikit-learn</p>
+                  <p class="mb-1.5"><strong class="text-gray-900">Full-Stack & Dev Tools:</strong> Docker, FastAPI, Git / GitHub, React + TypeScript, Streamlit, Vite, VPS Deployment</p>
+                  <p class="mb-1.5"><strong class="text-gray-900">Cloud & Platforms:</strong> Azure Fundamentals (AZ-900), Gemini API, Google AI Studio, Hadoop, Ollama, Open WebUI, Spark</p>
+                  <p><strong class="text-gray-900">Soft Skills:</strong> Critical Thinking, Cross-Functional Collaboration, Data-Driven Decision Making, Presentation Skills, Problem Solving</p>
                 </div>
               </div>
             </div>
 
             {/* Featured Projects */}
-            <div>
-              <h2 class="text-xs font-bold text-gray-900 border-b-2 border-gray-800 pb-1 mb-3 uppercase tracking-wider">Featured Projects</h2>
-              <div class="text-xs text-gray-750 space-y-3">
+            <div class="mb-5">
+              <h2 class="section-title text-[11px]">Featured Projects</h2>
+              <div class="space-y-3 text-gray-700 leading-relaxed font-light">
                 <div>
-                  <p class="font-bold text-gray-900 text-sm">AI-Driven Autonomous IT Incident Platform (TCS Hackathon Prize Winner)</p>
-                  <p class="mt-0.5">Built a 5-layer anomaly detection and automatic remediation system reducing MTTR by 65% and automated analysis by 80%.</p>
+                  <p class="font-bold text-gray-900 text-xs">AI-Driven Autonomous Incident Intelligence Platform — TCS Innovation Challenge <span class="text-gray-400 font-mono text-[10px]">04/2026</span></p>
+                  <p class="mt-0.5">Designed and built a 5-layer autonomous incident management platform monitoring enterprise IT systems resolving incidents with minimal human intervention. Achieved 94.2% anomaly accuracy, 91.9% F1-score, and 65% MTTR reduction. Pipeline: raw log ingestion &rarr; anomaly detection &rarr; semantic similarity diagnostic &rarr; auto-remediation plan &rarr; ITSM ticket auto-creation.</p>
                 </div>
                 <div>
-                  <p class="font-bold text-gray-900 text-sm">AI Resume Analyzer (Solo Project)</p>
-                  <p class="mt-0.5">A full-stack parsing and evaluation feedback ecosystem built from scratch using Gemini LLM, React, and Firebase.</p>
+                  <p class="font-bold text-gray-900 text-xs">RAG Knowledge Chatbot — Personal Project <span class="text-gray-400 font-mono text-[10px]">05/2026 – 06/2026</span></p>
+                  <p class="mt-0.5">Built a Retrieval-Augmented Generation system allowing users to upload any document and ask natural language questions — answers grounded in corporate documents with &lt;1% hallucination rate. Achieved ~1.1s latency and 92.4% retrieval recall. Full RAG lifecycle: ingestion &rarr; chunking &rarr; embedding &rarr; semantic retrieval &rarr; grounded LLM completion.</p>
+                </div>
+                <div>
+                  <p class="font-bold text-gray-900 text-xs">AI Resume Analyzer — Personal Project <span class="text-gray-400 font-mono text-[10px]">01/2026 – 02/2026</span></p>
+                  <p class="mt-0.5">Built a production-ready full-stack web app that parses uploaded resumes and generates section-by-section AI-powered feedback. Achieved &lt;2.5s response speed and 97.5% parsing accuracy.</p>
+                </div>
+                <div>
+                  <p class="font-bold text-gray-900 text-xs">Full-Stack Automation Website — Sakithi Clinic — Personal Project <span class="text-gray-400 font-mono text-[10px]">02/2026 – 03/2026</span></p>
+                  <p class="mt-0.5">Built and deployed a fully functional private clinic website solo. Implemented n8n workflows listening to Supabase database rows to route automated reminder messages, reducing booking overhead by 45%.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Certifications, Awards, volunteering */}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
+              <div>
+                <h2 class="section-title text-[11px]">Certifications</h2>
+                <div class="grid grid-cols-2 gap-x-3 gap-y-1 text-gray-700 text-[10px]">
+                  <div>• Azure Fundamentals (AZ-900)</div>
+                  <div>• Generative AI for Leaders</div>
+                  <div>• Complete UX/Prompt Bootcamp</div>
+                  <div>• SAP HANA Admin</div>
+                  <div>• Statistics for Data Science</div>
+                  <div>• Introduction to AI (IBM)</div>
+                  <div>• SAP Joule for Consultants</div>
+                  <div>• Process Mining (Celonis)</div>
+                  <div>• Automation Explorer</div>
+                  <div>• Linear Algebra for ML</div>
+                  <div>• Big Data Computing</div>
+                  <div>• Database foundations (Oracle)</div>
+                  <div>• Python Fundamentals (Google)</div>
+                </div>
+              </div>
+              <div>
+                <h2 class="section-title text-[11px]">Awards & volunteering & Publications</h2>
+                <div class="space-y-2 text-gray-700 text-[10.5px]">
+                  <div>
+                    <strong>• TACTICS 2026 — TCS Innovation Challenge</strong> <span class="text-gray-400 font-mono text-[9px]">(04/2026)</span>
+                  </div>
+                  <div>
+                    <strong>• TCS AI Spark Hackathon Winner</strong> <span class="text-gray-400 font-mono text-[9px]">(08/2025)</span>
+                  </div>
+                  <div>
+                    <strong>• Administrative Leadership Award</strong> (SRMIST) <span class="text-gray-400 font-mono text-[9px]">(05/2024)</span>
+                  </div>
+                  <div class="pt-1.5 border-t border-gray-150">
+                    <strong>• Class Representative — SRMIST</strong> <span class="text-gray-400 font-mono text-[9px]">(01/2020 – 01/2024)</span>
+                  </div>
+                  <div>
+                    <strong>• Secretary — Design & Innovation Club, SRMIST</strong>
+                  </div>
+                  <div class="pt-1.5 border-t border-gray-150 text-[10px]">
+                    <strong>• Pub: Mental Health Assistant Chatbot...</strong> (05/2024)
+                  </div>
+                  <div class="text-[10px]">
+                    <strong>• Pub: Enhancing Medical Healthcare Fraud...</strong> (10/2023)
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Print trigger CTA */}
-            <div class="no-print mt-10 pt-4 border-t border-gray-200 flex justify-end">
+            <div class="no-print mt-8 pt-4 border-t border-gray-200 flex justify-end">
               <button 
                 onclick="window.print()" 
                 class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-5 py-2.5 rounded-lg shadow transition-all cursor-pointer"
