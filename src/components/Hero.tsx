@@ -20,7 +20,7 @@ export default function Hero({ onSeeWorksClick, onReachOutClick, onNavClick, act
   const [scrolled, setScrolled] = useState(false);
   const [videoSource, setVideoSource] = useState<string | null>(null);
   const [videoStatus, setVideoStatus] = useState<"checking" | "local" | "streaming">("checking");
-  const [isVideoMuted, setIsVideoMuted] = useState(true);
+  const [isVideoMuted, setIsVideoMuted] = useState(false);
 
   // Cycle Roles
   useEffect(() => {
@@ -94,10 +94,38 @@ export default function Hero({ onSeeWorksClick, onReachOutClick, onNavClick, act
       // Direct mp4 source playback
       video.src = videoSource;
       video.load();
-      video.play().catch((err) => {
-        console.warn("Autoplay was prevented initially. Video stays ready.", err);
-      });
     }
+
+    // Try starting unmuted
+    const startPlayback = async () => {
+      try {
+        video.muted = isVideoMuted;
+        await video.play();
+      } catch (err) {
+        console.warn("Unmuted autoplay restricted by browser policies. Falling back to muted autoplay.", err);
+        // Fallback to muted so the video moves immediately
+        video.muted = true;
+        setIsVideoMuted(true);
+        try {
+          await video.play();
+        } catch (e) {
+          console.error("Muted playback failed too:", e);
+        }
+
+        // Unmute on the very first user interaction anywhere
+        const unmuteOnInteraction = () => {
+          video.muted = false;
+          setIsVideoMuted(false);
+          video.play().catch(pErr => console.log("Unmute on interaction failed", pErr));
+          document.removeEventListener("click", unmuteOnInteraction);
+          document.removeEventListener("touchstart", unmuteOnInteraction);
+        };
+        document.addEventListener("click", unmuteOnInteraction, { passive: true });
+        document.addEventListener("touchstart", unmuteOnInteraction, { passive: true });
+      }
+    };
+
+    startPlayback();
 
     return () => {
       if (hls) {
