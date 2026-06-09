@@ -77,7 +77,7 @@ export default function ContactFooter() {
     setStatus({ type: null, text: "" });
 
     try {
-      const response = await fetch("/api/contact", {
+      let response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -91,9 +91,38 @@ export default function ContactFooter() {
         }),
       });
 
+      // If Express backend API proxy is not found (e.g. 404 static hosting like Vercel), fall back to direct request
+      if (response.status === 404) {
+        console.warn("Express backend proxy (/api/contact) was not found (404). Proceeding with client-side direct webhook post.");
+        const directWebhookUrl = (import.meta as any).env?.VITE_N8N_WEBHOOK_URL || "https://letsgo.app.n8n.cloud/webhook/contact-form-submission";
+        response = await fetch(directWebhookUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            topic: formData.topic,
+            message: formData.message,
+            submittedAt: new Date().toISOString(),
+          }),
+        });
+      }
+
       if (!response.ok) {
-        const errJson = await response.json().catch(() => ({}));
-        throw new Error(errJson.error || `Server responded with HTTP status ${response.status}`);
+        let errText = `Server responded with HTTP status ${response.status}`;
+        try {
+          const errJson = await response.json();
+          errText = errJson.error || errText;
+        } catch (e) {
+          // If response isn't JSON, try reading text
+          try {
+            const rawText = await response.text();
+            if (rawText) errText = rawText;
+          } catch (te) {}
+        }
+        throw new Error(errText);
       }
 
       setSending(false);
