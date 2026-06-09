@@ -76,20 +76,8 @@ export default function ContactFooter() {
     setSending(true);
     setStatus({ type: null, text: "" });
 
-    const n8nWebhookUrl = (import.meta as any).env?.VITE_N8N_WEBHOOK_URL || "https://letsgo.app.n8n.cloud/webhook/contact-form-submission";
-
-    // Fallback if n8n webhook URL is not configured
-    if (!n8nWebhookUrl) {
-      setSending(false);
-      setStatus({
-        type: "warning",
-        text: "The n8n Webhook URL has not been defined in the environment variables yet. I have compiled and prepared an auto-formatted draft for my mailbox below, and you can also find detailed instructions on setting up n8n right below!"
-      });
-      return;
-    }
-
     try {
-      const response = await fetch(n8nWebhookUrl, {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -104,7 +92,8 @@ export default function ContactFooter() {
       });
 
       if (!response.ok) {
-        throw new Error(`Server responded with HTTP status ${response.status}`);
+        const errJson = await response.json().catch(() => ({}));
+        throw new Error(errJson.error || `Server responded with HTTP status ${response.status}`);
       }
 
       setSending(false);
@@ -114,7 +103,7 @@ export default function ContactFooter() {
       });
       setFormData({ name: "", email: "", topic: "", message: "" });
     } catch (error: any) {
-      console.error("n8n Webhook Error:", error);
+      console.error("Contact Submission Error:", error);
       setSending(false);
       setStatus({
         type: "error",
@@ -197,7 +186,7 @@ export default function ContactFooter() {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  placeholder="John Doe"
+                  placeholder=""
                   className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#38bdf8] focus:bg-white/[0.05] transition-all font-body font-light"
                 />
               </div>
@@ -209,7 +198,7 @@ export default function ContactFooter() {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  placeholder="john@example.com"
+                  placeholder=""
                   className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#38bdf8] focus:bg-white/[0.05] transition-all font-body font-light"
                 />
               </div>
@@ -222,7 +211,7 @@ export default function ContactFooter() {
                 required
                 value={formData.topic}
                 onChange={(e) => setFormData({...formData, topic: e.target.value})}
-                placeholder="RAG Orchestration / API Automation Consult"
+                placeholder=""
                 className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#38bdf8] focus:bg-white/[0.05] transition-all font-body font-light"
               />
             </div>
