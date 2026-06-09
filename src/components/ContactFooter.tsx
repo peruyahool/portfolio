@@ -76,45 +76,49 @@ export default function ContactFooter() {
     setSending(true);
     setStatus({ type: null, text: "" });
 
-    const serviceId = (import.meta as any).env?.VITE_EMAILJS_SERVICE_ID;
-    const templateId = (import.meta as any).env?.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = (import.meta as any).env?.VITE_EMAILJS_PUBLIC_KEY;
+    const n8nWebhookUrl = (import.meta as any).env?.VITE_N8N_WEBHOOK_URL || "https://letsgo.app.n8n.cloud/webhook/contact-form-submission";
 
-    // Zero-failure fallback check
-    if (!serviceId || !templateId || !publicKey) {
+    // Fallback if n8n webhook URL is not configured
+    if (!n8nWebhookUrl) {
       setSending(false);
       setStatus({
         type: "warning",
-        text: "EmailJS API keys not detected in development environment variables. I've prepared a beautifully auto-formatted email draft for my mailbox below instead!"
+        text: "The n8n Webhook URL has not been defined in the environment variables yet. I have compiled and prepared an auto-formatted draft for my mailbox below, and you can also find detailed instructions on setting up n8n right below!"
       });
       return;
     }
 
     try {
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.topic,
-          message: formData.message,
+      const response = await fetch(n8nWebhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        publicKey
-      );
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          topic: formData.topic,
+          message: formData.message,
+          submittedAt: new Date().toISOString(),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Server responded with HTTP status ${response.status}`);
+      }
 
       setSending(false);
       setStatus({
         type: "success",
-        text: "Thanks for reaching out! Your message was transmitted securely via EmailJS. I will read and reply to your inquiry shortly."
+        text: "Message successfully transmitted to the n8n workflow automation! We will read and reply to your inquiry shortly."
       });
       setFormData({ name: "", email: "", topic: "", message: "" });
     } catch (error: any) {
-      console.error("EmailJS Error:", error);
+      console.error("n8n Webhook Error:", error);
       setSending(false);
       setStatus({
         type: "error",
-        text: `Failed to transmit message: ${error?.text || "Unknown server response"}. Let's fall back to opening your default mail application.`
+        text: `Failed to transmit message to n8n: ${error?.message || "Remote server connection timed out"}. Let's fall back to opening your default mail application.`
       });
     }
   };
